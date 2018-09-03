@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified">
+
+    <xs:element name="СведКлиент" type="СведКлиентType"/>
+
+
+    <xs:simpleType name="dateS">
+        <xs:restriction base="xs:string">
+            <xs:length value="10"/>
+            <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="СведКлиентType">
+        <xs:sequence>
+            <xs:element name="ИнфКлиент" type="ИнфКлиентType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ИнфКлиентType">
+        <xs:sequence>
+            <xs:element name="КлиентАктив" type="xs:string" default="1"/>
+            <xs:element name="ДатаИдент" type="dateS" minOccurs="0"/>
+            <xs:element name="ТипКлиента" type="xs:string" default="2"/>
+            <xs:element name="ПризнакРезидент" type="xs:string"/>
+            <xs:element name="ПризнакКонтрагент" type="xs:string" default="0"/>
+            <xs:element name="КлиентКонтрагент" type="xs:string" default="0"/>
+            <xs:element name="СведОрг" type="СведОргType"/>
+            <xs:element name="Телефон" type="xs:string"/>
+            <xs:element name="АдрРег" type="АдресType"/>
+            <xs:element name="АдрПреб" type="АдресType"/>
+            <xs:element name="ПризнакИдентКлиента" type="xs:string"/>
+            <xs:element name="АдресType" type="xs:string" default="1"/>
+            <xs:element name="КодОснМер" type="xs:string"/>
+            <xs:element name="ДатаПеречня" type="dateS"/>
+            <xs:element name="НомерПеречня" type="xs:string"/>
+            <xs:element name="НомерЗаписиПеречень" type="xs:string"/>
+            <xs:element name="ДатаРешения" type="dateS"/>
+            <xs:element name="НомерРешения" type="xs:string"/>
+            <xs:element name="ДатаРезультат" type="dateS"/>
+            <xs:element name="ДатаНачалоОтн" type="dateS"/>
+            <xs:element name="ДатаЗаполнения" type="dateS"/>
+            <xs:element name="ИнаяИнф" type="xs:string"/>
+            <xs:element name="ИнфСтепеньРиск" type="xs:string"
+                        default="Нет критериев для присвоения иного уровня риска"/>
+            <xs:element name="ПаспортВалид" type="xs:string" default="1"/>
+            <xs:element name="ИнфЦельОтношения" type="xs:string" default="Страхование жизни"/>
+            <xs:element name="ИнфХарактерОтношения" type="xs:string" default="Долгосрочные"/>
+            <xs:element name="ИнфЦельФХД" type="xs:string" default="Страхование жизни"/>
+            <xs:element name="ИнфРепутация" type="xs:string" default="Устойчивая"/>
+            <xs:element name="ИнфФинансы" type="xs:string" default="Устойчивая"/>
+            <xs:element name="ИнфПроисхождениеДеньги" type="xs:string" default="Личные накопления"/>
+            <xs:element name="ФИОСотрудника" type="ФИОType"/>
+            <xs:element name="ДолжностьСотрудника" type="xs:string" default="Главный специалист УОП"/>
+            <xs:element name="СтепеньРиска" type="xs:string" default="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведОргType">
+        <xs:choice>
+            <xs:element name="СведенияЮЛ" type="СведенияЮЛType"/>
+            <xs:element name="СведенияФЛИП" type="СведенияФЛ"/>
+            <xs:element name="СведенияИНБОЮЛ" type="СведенияИНБОЮЛType"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="АдресType">
+        <xs:sequence>
+            <xs:element name="КодОКСМ" type="xs:string" minOccurs="0"/>
+            <xs:element name="СтранаНаименование" type="xs:string" minOccurs="0"/>
+            <xs:element name="Индекс" type="xs:string" minOccurs="0"/>
+            <xs:element name="КодСубъектаПоОКАТО" type="xs:string" minOccurs="0"/>
+            <xs:element name="Район" type="xs:string" minOccurs="0"/>
+            <xs:element name="Пункт" type="xs:string" minOccurs="0"/>
+            <xs:element name="Улица" type="xs:string" minOccurs="0"/>
+            <xs:element name="Дом" type="xs:string" minOccurs="0"/>
+            <xs:element name="Корп" type="xs:string" minOccurs="0"/>
+            <xs:element name="Оф" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Адрес2Type">
+        <xs:sequence>
+            <xs:element name="КодОКСМ" type="xs:string" minOccurs="0"/>
+            <xs:element name="СтранаНаименование" type="xs:string" minOccurs="0"/>
+            <xs:element name="КодСубъектаПоОКАТО" type="xs:string" minOccurs="0"/>
+            <xs:element name="Район" type="xs:string" minOccurs="0"/>
+            <xs:element name="Пункт" type="xs:string" minOccurs="0"/>
+            <xs:element name="Улица" type="xs:string" minOccurs="0"/>
+            <xs:element name="Дом" type="xs:string" minOccurs="0"/>
+            <xs:element name="Корп" type="xs:string" minOccurs="0"/>
+            <xs:element name="Оф" type="xs:string" minOccurs="0"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведДокУдЛичнType">
+        <xs:sequence>
+            <xs:element name="ВидДокКод" type="xs:string" minOccurs="0"/>
+            <xs:element name="ВидДокНаименование" type="xs:string" minOccurs="0"/>
+            <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатВыдачиДок" type="dateS" minOccurs="0"/>
+            <xs:element name="КемВыданДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="КодПодр" type="xs:string" minOccurs="0"/>
+            <xs:element name="ИноеНаименованиеДок" type="xs:string" minOccurs="0"/>
+
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ФИОType">
+        <xs:sequence>
+            <xs:element name="Фам" type="xs:string" minOccurs="0"/>
+            <xs:element name="Имя" type="xs:string" minOccurs="0"/>
+            <xs:element name="Отч" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведенияЛицензияType">
+        <xs:annotation>
+            <xs:documentation>
+
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ВидЛицензии" type="xs:string" minOccurs="0"/>
+            <xs:element name="НомерЛицензии" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатаВыдачиЛицензии" type="dateS" minOccurs="0"/>
+            <xs:element name="КемВыданаЛицензия" type="xs:string" minOccurs="0"/>
+            <xs:element name="НачалоДействияЛицензии" type="dateS" minOccurs="0"/>
+            <xs:element name="КонецДействияЛицензии" type="dateS" minOccurs="0"/>
+            <xs:element name="ПереченьВидовЛицДеят" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведенияЮЛType">
+        <xs:sequence>
+            <xs:element name="ПолнНаимЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="КратНаимЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ИностранноеНаимЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКОПФЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ИННЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="КППЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКПОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКВЭДЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОГРН" type="xs:string" minOccurs="0"/>
+            <xs:element name="НаименРегОрганаЮл" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатаРегЮл" type="dateS" minOccurs="0"/>
+            <xs:element name="ПризнСтратег" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКВЭД2ЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="БИК" type="xs:string" minOccurs="0"/>
+            <xs:element name="АдрРегЮЛ" type="Адрес2Type" minOccurs="0"/>
+           <xs:element name="Лицензия" type="СведенияЛицензияType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведенияИНБОЮЛType">
+        <xs:sequence>
+            <xs:element name="ПолнНаимИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="КратНаимИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ИностранноеНаимИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКОПФИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКВЭДИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКВЭД2ИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="КодИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="НомерИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="ПризнакОргФормаИНБОЮЛ" type="xs:string" minOccurs="0"/>
+            <xs:element name="Учредитель" type="УчредительИНБОЮЛType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведенияФЛ">
+        <xs:sequence>
+            <xs:element name="ФИОФЛИП" type="ФИОType"/>
+            <xs:element name="ИННФЛИП" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКВЭДИП" type="xs:string" minOccurs="0"/>
+            <xs:element name="НаименРегОргана" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОГРНИП" type="xs:string" minOccurs="0"/>
+            <xs:element name="ОКПО" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатаРегИП" type="dateS" minOccurs="0"/>
+            <xs:element name="КодОКСМ" type="xs:string"/>
+            <xs:element name="СтранаНаименование" type="xs:string"/>
+            <xs:element name="ДатаРождения" type="dateS"/>
+            <xs:element name="МестоРожд" type="МестоРождType"/>
+            <xs:element name="ВидГражданства" type="xs:string"/>
+            <xs:element name="СведДокУдЛичн" type="СведДокУдЛичнType"/>
+            <xs:element name="СведМигрКарта" type="СведМигрКартаType"/>
+            <xs:element name="СведДокПраво" type="СведДокПравоType"/>
+            <xs:element name="ПризнакПринПубЛицо" type="xs:string" default="0"/>
+            <xs:element name="ПризнакРоссПубЛицо" type="xs:string"/>
+            <xs:element name="ПризнакИнострПубЛицо" type="xs:string"/>
+            <xs:element name="ИнойПризнак" type="xs:string"/>
+            <xs:element name="Родство" type="xs:string"/>
+            <xs:element name="Должность" type="xs:string"/>
+            <xs:element name="ВидИдентификации" type="xs:string" default="2"/>
+            <xs:element name="ТипФЛЧастнаяПрактика" type="xs:string"/>
+            <xs:element name="РегнНомер" type="xs:string"/>
+            <xs:element name="СНИЛСФЛИП" type="СНИЛСType"/>
+            <xs:element name="ОКВЭД2ИП" type="xs:string"/>
+            <xs:element name="Работа" type="СведенияРаботаType"/>
+            <xs:element name="АдрРегИП" type="Адрес2Type"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="МестоРождType">
+        <xs:sequence>
+            <xs:element name="КодОКСМ" type="xs:string" minOccurs="0"/>
+            <xs:element name="КодСубъектаПоОКАТО" type="xs:string" minOccurs="0"/>
+            <xs:element name="Район" type="xs:string" minOccurs="0"/>
+            <xs:element name="Пункт" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведМигрКартаType">
+        <xs:sequence>
+            <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатаНачала" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаОкончания" type="dateS" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="СведДокПравоType">
+        <xs:sequence>
+            <xs:element name="ВидДокКод" type="xs:string" minOccurs="0"/>
+            <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
+            <xs:element name="ДатаНачала" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаОкончания" type="dateS" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="СНИЛСType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^D]{3}-[^D]{3}-[^D]{3} [^D]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="СведенияРаботаType">
+        <xs:sequence>
+            <xs:element name="ДолжностьКлиента" type="xs:string" minOccurs="0"/>
+            <xs:element name="НименованиеРаботодатель" type="xs:string" minOccurs="0"/>
+            <xs:element name="АдрРаботодатель" type="Адрес2Type" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="УчредительИНБОЮЛType">
+        <xs:sequence>
+            <xs:element name="ТипУчредителя" type="xs:string" minOccurs="0"/>
+            <xs:element name="НаимУчредитель" type="xs:string" minOccurs="0"/>
+            <xs:element name="СоставИмущества" type="xs:string" minOccurs="0"/>
+            <xs:element name="АдресУчредитель" type="Адрес2Type" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
