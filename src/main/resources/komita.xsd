@@ -4,14 +4,6 @@
     <xs:element name="СведКлиент" type="СведКлиентType"/>
 
 
-    <xs:simpleType name="dateS">
-        <xs:restriction base="xs:string">
-            <xs:length value="10"/>
-            <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-
     <xs:complexType name="СведКлиентType">
         <xs:sequence>
             <xs:element name="ИнфКлиент" type="ИнфКлиентType" maxOccurs="unbounded"/>
@@ -21,7 +13,7 @@
     <xs:complexType name="ИнфКлиентType">
         <xs:sequence>
             <xs:element name="КлиентАктив" type="xs:string" default="1"/>
-            <xs:element name="ДатаИдент" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаИдент" type="xs:date" minOccurs="0"/>
             <xs:element name="ТипКлиента" type="xs:string" default="2"/>
             <xs:element name="ПризнакРезидент" type="xs:string"/>
             <xs:element name="ПризнакКонтрагент" type="xs:string" default="0"/>
@@ -33,14 +25,14 @@
             <xs:element name="ПризнакИдентКлиента" type="xs:string"/>
             <xs:element name="АдресType" type="xs:string" default="1"/>
             <xs:element name="КодОснМер" type="xs:string"/>
-            <xs:element name="ДатаПеречня" type="dateS"/>
+            <xs:element name="ДатаПеречня" type="xs:date"/>
             <xs:element name="НомерПеречня" type="xs:string"/>
             <xs:element name="НомерЗаписиПеречень" type="xs:string"/>
-            <xs:element name="ДатаРешения" type="dateS"/>
+            <xs:element name="ДатаРешения" type="xs:date"/>
             <xs:element name="НомерРешения" type="xs:string"/>
-            <xs:element name="ДатаРезультат" type="dateS"/>
-            <xs:element name="ДатаНачалоОтн" type="dateS"/>
-            <xs:element name="ДатаЗаполнения" type="dateS"/>
+            <xs:element name="ДатаРезультат" type="xs:date"/>
+            <xs:element name="ДатаНачалоОтн" type="xs:date"/>
+            <xs:element name="ДатаЗаполнения" type="xs:date"/>
             <xs:element name="ИнаяИнф" type="xs:string"/>
             <xs:element name="ИнфСтепеньРиск" type="xs:string"
                         default="Нет критериев для присвоения иного уровня риска"/>
@@ -101,7 +93,7 @@
             <xs:element name="ВидДокНаименование" type="xs:string" minOccurs="0"/>
             <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
             <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатВыдачиДок" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатВыдачиДок" type="xs:date" minOccurs="0"/>
             <xs:element name="КемВыданДок" type="xs:string" minOccurs="0"/>
             <xs:element name="КодПодр" type="xs:string" minOccurs="0"/>
             <xs:element name="ИноеНаименованиеДок" type="xs:string" minOccurs="0"/>
@@ -125,10 +117,10 @@
         <xs:sequence>
             <xs:element name="ВидЛицензии" type="xs:string" minOccurs="0"/>
             <xs:element name="НомерЛицензии" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатаВыдачиЛицензии" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаВыдачиЛицензии" type="xs:date" minOccurs="0"/>
             <xs:element name="КемВыданаЛицензия" type="xs:string" minOccurs="0"/>
-            <xs:element name="НачалоДействияЛицензии" type="dateS" minOccurs="0"/>
-            <xs:element name="КонецДействияЛицензии" type="dateS" minOccurs="0"/>
+            <xs:element name="НачалоДействияЛицензии" type="xs:date" minOccurs="0"/>
+            <xs:element name="КонецДействияЛицензии" type="xs:date" minOccurs="0"/>
             <xs:element name="ПереченьВидовЛицДеят" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
@@ -145,7 +137,7 @@
             <xs:element name="ОКВЭДЮЛ" type="xs:string" minOccurs="0"/>
             <xs:element name="ОГРН" type="xs:string" minOccurs="0"/>
             <xs:element name="НаименРегОрганаЮл" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатаРегЮл" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаРегЮл" type="xs:date" minOccurs="0"/>
             <xs:element name="ПризнСтратег" type="xs:string" minOccurs="0"/>
             <xs:element name="ОКВЭД2ЮЛ" type="xs:string" minOccurs="0"/>
             <xs:element name="БИК" type="xs:string" minOccurs="0"/>
@@ -177,10 +169,10 @@
             <xs:element name="НаименРегОргана" type="xs:string" minOccurs="0"/>
             <xs:element name="ОГРНИП" type="xs:string" minOccurs="0"/>
             <xs:element name="ОКПО" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатаРегИП" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаРегИП" type="xs:date" minOccurs="0"/>
             <xs:element name="КодОКСМ" type="xs:string"/>
             <xs:element name="СтранаНаименование" type="xs:string"/>
-            <xs:element name="ДатаРождения" type="dateS"/>
+            <xs:element name="ДатаРождения" type="xs:date"/>
             <xs:element name="МестоРожд" type="МестоРождType"/>
             <xs:element name="ВидГражданства" type="xs:string"/>
             <xs:element name="СведДокУдЛичн" type="СведДокУдЛичнType"/>
@@ -215,8 +207,8 @@
         <xs:sequence>
             <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
             <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатаНачала" type="dateS" minOccurs="0"/>
-            <xs:element name="ДатаОкончания" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаНачала" type="xs:date" minOccurs="0"/>
+            <xs:element name="ДатаОкончания" type="xs:date" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -225,8 +217,8 @@
             <xs:element name="ВидДокКод" type="xs:string" minOccurs="0"/>
             <xs:element name="СерияДок" type="xs:string" minOccurs="0"/>
             <xs:element name="НомДок" type="xs:string" minOccurs="0"/>
-            <xs:element name="ДатаНачала" type="dateS" minOccurs="0"/>
-            <xs:element name="ДатаОкончания" type="dateS" minOccurs="0"/>
+            <xs:element name="ДатаНачала" type="xs:date" minOccurs="0"/>
+            <xs:element name="ДатаОкончания" type="xs:date" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 

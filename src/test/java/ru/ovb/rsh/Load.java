@@ -16,13 +16,24 @@ public class Load {
 
         for (int row=0; row<3; row++) {
             Row r = sheetAt.getRow(row);
-            for (int c=0; c<4; c++){
+            for (int c=0; c<3; c++){
                 Cell cell = r.getCell(c);
                 try {
                     System.out.println(cell.getStringCellValue());
                 }catch (Exception ex){
                     System.out.println("["+ex.getClass()+"] "+ex.getMessage());
                 }
+                try {
+                    System.out.println(cell.getNumericCellValue());
+                }catch (Exception ex){
+                    System.out.println("["+ex.getClass()+"] "+ex.getMessage());
+                }
+                try {
+                    System.out.println(cell.getDateCellValue());
+                }catch (Exception ex){
+                    System.out.println("["+ex.getClass()+"] "+ex.getMessage());
+                }
+                System.out.println("==========");
             }
         }
 
