@@ -10,7 +10,7 @@
     </globalBindings>
     <bindings schemaLocation="komita.xsd" node="/xs:schema">
         <schemaBindings>
-            <package name="ru.rshbsl.komita"/>
+            <package name="ru.rshbsl.komita.schema"/>
         </schemaBindings>
     </bindings>
 </bindings>
