@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
-    <xs:element name="СведКлиент" type="СведКлиентType"/>
-
-
-    <xs:complexType name="СведКлиентType">
-        <xs:sequence>
-            <xs:element name="ИнфКлиент" type="ИнфКлиентType" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:element name="СведКлиент">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ИнфКлиент" type="ИнфКлиентType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <xs:complexType name="ИнфКлиентType">
         <xs:sequence>
@@ -142,7 +141,7 @@
             <xs:element name="ОКВЭД2ЮЛ" type="xs:string" minOccurs="0"/>
             <xs:element name="БИК" type="xs:string" minOccurs="0"/>
             <xs:element name="АдрРегЮЛ" type="Адрес2Type" minOccurs="0"/>
-           <xs:element name="Лицензия" type="СведенияЛицензияType" minOccurs="0"/>
+            <xs:element name="Лицензия" type="СведенияЛицензияType" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 

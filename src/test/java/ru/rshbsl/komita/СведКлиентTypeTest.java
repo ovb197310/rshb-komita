@@ -4,7 +4,7 @@ import org.joda.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Test;
 import ru.rshbsl.komita.schema.ИнфКлиентType;
-import ru.rshbsl.komita.schema.СведКлиентType;
+import ru.rshbsl.komita.schema.СведКлиент;
 
 import javax.xml.bind.JAXB;
 import java.io.StringReader;
@@ -15,7 +15,7 @@ public class СведКлиентTypeTest {
     @Test
     public void xml() throws Exception {
 
-        СведКлиентType x = new СведКлиентType();
+        СведКлиент x = new СведКлиент();
         ИнфКлиентType c = new ИнфКлиентType();
         x.getИнфКлиент().add(c);
 
@@ -25,7 +25,7 @@ public class СведКлиентTypeTest {
         JAXB.marshal(x, sw);
         System.out.println(sw.toString());
 
-        СведКлиентType unm = JAXB.unmarshal(new StringReader(sw.toString()), СведКлиентType.class);
+        СведКлиент unm = JAXB.unmarshal(new StringReader(sw.toString()), СведКлиент.class);
         Assert.assertEquals(LocalDate.now(), unm.getИнфКлиент().get(0).getДатаЗаполнения());
         System.out.println(unm.getИнфКлиент().get(0).getДатаЗаполнения());
 

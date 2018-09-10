@@ -12,14 +12,14 @@ public class LocalDateFormatter extends XmlAdapter<String, LocalDate> {
 
     public static String print(LocalDate value) {
         if (value == null) {
-            return null;
+            return "";
         }
 
         return DTF.print(value);
     }
 
     public static LocalDate parse(String value) {
-        if (value == null) {
+        if (value == null || value.isEmpty()) {
             return null;
         }
 
