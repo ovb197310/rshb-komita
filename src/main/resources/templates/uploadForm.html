@@ -15,9 +15,18 @@
 <div class="base">
     <form method="POST" enctype="multipart/form-data" action="/">
         <table>
+
             <tr>
                 <td>Файл для обработки</td>
-                <td><input type="file" name="file"/></td>
+                <td style="width: 500px">
+                    <input type="file" name="file" style="width: 100%"/>
+                </td>
+            </tr>
+            <tr>
+                <td>С какой строки обрабатывать</td>
+                <td><input type="number" name="fromRow" value="5" style="width: 50px"/></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td><input type="submit" value="Обработать"/></td>
             </tr>
